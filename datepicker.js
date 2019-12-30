@@ -313,6 +313,7 @@ function initializeDatepicker ({ locale, firstDayOfWeek, weekDayFormat }) {
     datepickerEl.appendChild(dateInput)
     let insertedInput = document.getElementById('ad-input')
     insertedInput.addEventListener('focus', function (e) {
+        removeGroup()
         let val = e.target.value
         let dateArray = val.split('.')
         if (validateDate(dateArray)) {
