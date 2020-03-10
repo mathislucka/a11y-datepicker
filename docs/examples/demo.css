@@ -10,12 +10,18 @@
     margin-bottom: 2em;
     line-height: 1.5em;
     font-size: 1.2em;
-    border: 1px solid lightgrey;
+    background-color: #f7fafc;
     padding: 1em;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 label {
+    display: inline-block;
     font-size: 1.2em;
-    font-weight: 400;
-    margin-bottom: 0.5em;
+    font-weight: 500;
+    margin-bottom: .4em;
+}
+
+h1, label {
+    color: #1a202c;
 }
