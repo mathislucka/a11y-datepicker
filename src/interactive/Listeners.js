@@ -9,9 +9,7 @@ import { createDateFromDayEl } from '../utils/Transformers.js'
 
 function Listeners (config, setState, getState) {
 
-    this.setListeners = function setListeners (el) {
-        var inputEl = getElementById(config.id + 'input')
-        var rootEl = el
+    this.setListeners = function setListeners (rootEl, inputEl) {
         var focus = on('focus', inputEl, openDatepicker)
         var click = on('click', rootEl, clickSwitch)
         var keydown = on('keydown', rootEl, keyPressSwitch)
@@ -63,14 +61,16 @@ function Listeners (config, setState, getState) {
             inputEl.value = toDateString(date, config.dateFormat)
             setState('selectedDate', date)
             removeCalendar(inputEl.parentNode, config.id)
+            inputEl.setCustomValidity('')
             inputEl.focus()
         }
     }
 
     function triggerSwitch(e) {
         var root = e.currentTarget
-        var dir = parseInt(e.target.getAttribute('data-direction'))
+        var dir = parseInt(e.target.getAttribute('data-ad-id'))
         var date = e.target.value.split('$')
+        console.log(date)
         date = createDateFromArray([date[0], date[1], 1])
         var newGroup = shiftGroup(date, dir, config)
         redrawCalendar(root, newGroup.date, config, newGroup.before, newGroup.after)
@@ -80,6 +80,7 @@ function Listeners (config, setState, getState) {
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)
+        console.log('called')
         isSwitcher(el) && triggerSwitch(e)
     }
     

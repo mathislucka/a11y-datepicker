@@ -10,6 +10,7 @@ export default {
     {
       file: 'bundle.min.js',
       format: 'iife',
+      name: 'a11yDatepicker',
       plugins: [terser()]
     }
   ]

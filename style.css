@@ -13,10 +13,6 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
-#ad-group {
-    display: flex;
-    flex-direction: row;
-}
 
 table {
     border-collapse: collapse;
@@ -29,6 +25,7 @@ table {
     -moz-box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
     box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
 }
+
 td, th {
     text-align: center;
     vertical-align: middle;

@@ -26,6 +26,7 @@ function drawDateInput (calendarRootElement, config) {
     dateInput.type = 'text'
     dateInput.setAttribute('data-ad-id', config.id + 'input')
     calendarRootElement.appendChild(dateInput)
+    return dateInput
 }
 
 function drawMobileDateInput (calendarRootElement, config) {

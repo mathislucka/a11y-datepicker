@@ -12,13 +12,13 @@ var defaultConfig = {
     initialDate: null,
     monthsBeforeCurrent: 0,
     monthsAfterCurrent: 0,
-    weekStartsOn: 0,
+    weekStartsOn: 1,
     id: '_ad-',
-    dateFormat: 'dd.mm.yyyy'
+    dateFormat: 'yyyy-mm-dd'
 }
 
 var defaultTranslations = {
-    description: 'This is a datepicker. You can type in a date using the keyboard. It should be in the format ' +
+    description: 'This is a datepicker. You can type in a date using the keyboard. Use the required date format. It should be:' +
         defaultConfig.dateFormat + ' You can also use the datepicker to select a date.' +
         ' Press shift and arrow down to focus the datepicker.' +
         ' Press left arrow to move one day back.' +
@@ -28,7 +28,7 @@ var defaultTranslations = {
         ' Press Space to select a date.' +
         ' Press Escape to close the datepicker.',
     notInRange: 'The date is not within the intended date range.',
-    nextGroup: 'Show next months.',
+    nextGroups: 'Show next months.',
     prevGroups: 'Show previous months.',
 }
 
@@ -48,9 +48,9 @@ function Datepicker(userConfig, userTranslations) {
         var calendarRootElement = document.getElementById(config.id + 'datepicker')
         
         if (!isMobileDevice()) {
-            drawDateInput(calendarRootElement, config)
+            var inputEl = drawDateInput(calendarRootElement, config)
             var listeners = new Listeners(config, setState, getState)
-            listeners.setListeners(calendarRootElement)
+            listeners.setListeners(calendarRootElement, inputEl)
         } else {
             drawMobileDateInput(calendarRootElement, config)
         }

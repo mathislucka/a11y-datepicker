@@ -34,7 +34,8 @@ function isDay (el) {
 }
 
 function isSwitcher (el) {
-    return el.hasAttribute('data-direction')
+    var dir =  el.getAttribute('data-ad-id')
+    return dir === '1' || dir === '-1'
 }
 
 export { focusElement, getElementById, getElementByDate, getFocussedElement, on, isDay, isSwitcher, getFocussedDay }

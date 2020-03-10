@@ -365,7 +365,8 @@ function isDay (el) {
 }
 
 function isSwitcher (el) {
-    return el.hasAttribute('data-direction')
+    var dir =  el.getAttribute('data-ad-id');
+    return dir === '1' || dir === '-1'
 }
 
 function redrawCalendar (calendarRootElement, drawingDate, config, before, after) {
@@ -392,6 +393,7 @@ function drawDateInput (calendarRootElement, config) {
     dateInput.type = 'text';
     dateInput.setAttribute('data-ad-id', config.id + 'input');
     calendarRootElement.appendChild(dateInput);
+    return dateInput
 }
 
 function drawMobileDateInput (calendarRootElement, config) {
@@ -439,9 +441,7 @@ var rootKeyBindings = {
 
 function Listeners (config, setState, getState) {
 
-    this.setListeners = function setListeners (el) {
-        var inputEl = getElementById(config.id + 'input');
-        var rootEl = el;
+    this.setListeners = function setListeners (rootEl, inputEl) {
         var focus = on('focus', inputEl, openDatepicker);
         var click = on('click', rootEl, clickSwitch);
         var keydown = on('keydown', rootEl, keyPressSwitch);
@@ -493,14 +493,16 @@ function Listeners (config, setState, getState) {
             inputEl.value = toDateString(date, config.dateFormat);
             setState('selectedDate', date);
             removeCalendar(inputEl.parentNode, config.id);
+            inputEl.setCustomValidity('');
             inputEl.focus();
         }
     }
 
     function triggerSwitch(e) {
         var root = e.currentTarget;
-        var dir = parseInt(e.target.getAttribute('data-direction'));
+        var dir = parseInt(e.target.getAttribute('data-ad-id'));
         var date = e.target.value.split('$');
+        console.log(date);
         date = createDateFromArray([date[0], date[1], 1]);
         var newGroup = shiftGroup(date, dir, config);
         redrawCalendar(root, newGroup.date, config, newGroup.before, newGroup.after);
@@ -510,6 +512,7 @@ function Listeners (config, setState, getState) {
         var el = e.target;
         var inputEl = getElementById(config.id + 'input');
         isDay(el) && selectDate(el, inputEl);
+        console.log('called');
         isSwitcher(el) && triggerSwitch(e);
     }
     
@@ -545,13 +548,13 @@ var defaultConfig = {
     initialDate: null,
     monthsBeforeCurrent: 0,
     monthsAfterCurrent: 0,
-    weekStartsOn: 0,
+    weekStartsOn: 1,
     id: '_ad-',
-    dateFormat: 'dd.mm.yyyy'
+    dateFormat: 'yyyy-mm-dd'
 };
 
 var defaultTranslations = {
-    description: 'This is a datepicker. You can type in a date using the keyboard. It should be in the format ' +
+    description: 'This is a datepicker. You can type in a date using the keyboard. Use the required date format. It should be:' +
         defaultConfig.dateFormat + ' You can also use the datepicker to select a date.' +
         ' Press shift and arrow down to focus the datepicker.' +
         ' Press left arrow to move one day back.' +
@@ -561,7 +564,7 @@ var defaultTranslations = {
         ' Press Space to select a date.' +
         ' Press Escape to close the datepicker.',
     notInRange: 'The date is not within the intended date range.',
-    nextGroup: 'Show next months.',
+    nextGroups: 'Show next months.',
     prevGroups: 'Show previous months.',
 };
 
@@ -581,9 +584,9 @@ function Datepicker(userConfig, userTranslations) {
         var calendarRootElement = document.getElementById(config.id + 'datepicker');
         
         if (!isMobileDevice()) {
-            drawDateInput(calendarRootElement, config);
+            var inputEl = drawDateInput(calendarRootElement, config);
             var listeners = new Listeners(config, setState, getState);
-            listeners.setListeners(calendarRootElement);
+            listeners.setListeners(calendarRootElement, inputEl);
         } else {
             drawMobileDateInput(calendarRootElement, config);
         }
@@ -592,4 +595,4 @@ function Datepicker(userConfig, userTranslations) {
     initialize(userConfig, userTranslations, setState, getState);
 }
 
-window.datepicker = Datepicker;
+module.exports = Datepicker;
