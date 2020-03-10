@@ -1,3 +1,18 @@
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+  
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+  
+    white-space: nowrap;
+  
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 #ad-group {
     display: flex;
     flex-direction: row;
@@ -5,18 +20,51 @@
 
 table {
     border-collapse: collapse;
+    font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin-top: .5em;
+    color: #fff;
+    background-color: #3f4458;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
+    box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
 }
 td, th {
-    border: 1px solid black;
     text-align: center;
     vertical-align: middle;
-    background-color: #98B4D4;
-    padding: 4px;
+}
+
+thead {
+    border-bottom: 1px solid #8D90A1;
+    padding-bottom: 1em;
+}
+
+th {
+    padding-bottom: 2px;
 }
 
 button {
+    font-size: 100%;
+    font-family: inherit;
+    color: inherit;
+    background-color: inherit;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: #98B4D4;
     border: none;
+    padding: 4px;
+    min-width: calc(2em + 4px);
+}
+
+button:focus {
+    border: 2px solid deeppink;
+    color: deeppink;
+    padding: 2px;
+}
+
+button[aria-disabled=true] {
+    color: darkgrey;
+}
+
+input[type=text]:invalid {
+    border: 2px solid red;
 }
