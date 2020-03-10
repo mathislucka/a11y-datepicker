@@ -1,8 +1,8 @@
-import { findFirstDay, getWeekdays } from '../utils/DateManipulation.js'
-import { Listeners } from './../interactive/Listeners.js'
-import { merge } from '../utils/Merge.js'
-import { drawDateInput, drawMobileDateInput } from '../draw/Draw.js'
-import { isMobileDevice } from '../utils/DetectMobile.js'
+import { findFirstDay, getWeekdays } from './utils/DateManipulation.js'
+import { Listeners } from './interactive/Listeners.js'
+import { merge } from './utils/Merge.js'
+import { drawDateInput, drawMobileDateInput } from './draw/Draw.js'
+import { isMobileDevice } from './utils/DetectMobile.js'
 
 var defaultConfig = {
     locale: 'en-EN',

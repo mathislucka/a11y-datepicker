@@ -1,3 +1,3 @@
-import { Datepicker } from './elements/Datepicker.js'
+import { Datepicker } from './Datepicker.js'
 
 export default Datepicker
