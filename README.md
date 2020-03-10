@@ -8,6 +8,10 @@ It should be small.
 
 It does not have any external dependencies.
 
+It should natively support IE11 (no babel neede).
+
+It should fall back to HTML native date input on mobile.
+
 [See the demo](https://mathislucka.github.io/a11y-datepicker)
 
 ## Roadmap
