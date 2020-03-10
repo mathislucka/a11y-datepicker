@@ -16,3 +16,4 @@ It does not have any external dependencies.
 - add some missing aria controls
 - add documentation
 - add more tests
+- add cjs and esm builds
