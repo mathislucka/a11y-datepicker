@@ -70,7 +70,6 @@ function Listeners (config, setState, getState) {
         var root = e.currentTarget
         var dir = parseInt(e.target.getAttribute('data-ad-id'))
         var date = e.target.value.split('$')
-        console.log(date)
         date = createDateFromArray([date[0], date[1], 1])
         var newGroup = shiftGroup(date, dir, config)
         redrawCalendar(root, newGroup.date, config, newGroup.before, newGroup.after)
@@ -80,7 +79,6 @@ function Listeners (config, setState, getState) {
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)
-        console.log('called')
         isSwitcher(el) && triggerSwitch(e)
     }
     

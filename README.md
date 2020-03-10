@@ -17,3 +17,5 @@ It does not have any external dependencies.
 - add documentation
 - add more tests
 - add cjs and esm builds
+- add methods to destroy datepicker instance
+- emit current state of datepicker (possibly using events)
