@@ -25,6 +25,7 @@ function drawDateInput (calendarRootElement, config) {
     dateInput.setAttribute('aria-describedby', config.id + 'description')
     dateInput.type = 'text'
     dateInput.setAttribute('data-ad-id', config.id + 'input')
+    dateInput.setAttribute('name', config.inputName)
     calendarRootElement.appendChild(dateInput)
     return dateInput
 }

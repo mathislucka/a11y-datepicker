@@ -14,7 +14,8 @@ var defaultConfig = {
     monthsAfterCurrent: 0,
     weekStartsOn: 1,
     id: '_ad-',
-    dateFormat: 'yyyy-mm-dd'
+    dateFormat: 'yyyy-mm-dd',
+    inputName: 'datepicker-input'
 }
 
 var defaultTranslations = {
