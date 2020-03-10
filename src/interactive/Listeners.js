@@ -15,7 +15,7 @@ function Listeners (config, setState, getState) {
         var keydown = on('keydown', rootEl, keyPressSwitch)
         var input = on('input', inputEl, updateDatePicker)
         var inputClick = on('click', inputEl, openDatepicker)
-        var blur = on('blur', inputEl, closeDatePicker)
+        var blur = on('focusout', inputEl, closeDatePicker)
         var mousedown = on('mousedown', rootEl, preventBlur)
     }
 
