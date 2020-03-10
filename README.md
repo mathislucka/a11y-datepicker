@@ -1,12 +1,18 @@
 # a11y-datepicker
 
-...an early work in progress accessible datepicker
+This is an early work in progress datepicker component.
 
+It aims to be accessible to keyboard and screenreader users.
 
-- make listeners removable
-- use unified interface for registering listeners
-- make interaction depend on state
-- use events to react to state changes (?)
-- allow for custom date manipulation funcs
+It should be small.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
+It does not have any external dependencies.
+
+## Roadmap
+
+- support custom icons
+- add a control bar for closing the datepicker and getting to the current date
+- move necessary css to js
+- add some missing aria controls
+- add documentation
+- add more tests
