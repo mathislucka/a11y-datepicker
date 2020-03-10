@@ -41,12 +41,12 @@ th {
 }
 
 button {
-    font-size: 100%;
-    font-family: inherit;
-    color: inherit;
-    background-color: inherit;
     -webkit-appearance: none;
     -moz-appearance: none;
+    font-size: 100%;
+    font-family: inherit;
+    color: #3f4458;
+    background-color: inherit;
     border: none;
     padding: 4px;
     min-width: calc(2em + 4px);
