@@ -4,7 +4,7 @@ export default {
   input: 'src/main.js',
   output: [
     {
-      file: 'bundle.min.js',
+      file: 'dist/bundle.min.js',
       format: 'iife',
       name: 'a11yDatepicker',
       plugins: [terser()]
