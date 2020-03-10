@@ -8,6 +8,8 @@ It should be small.
 
 It does not have any external dependencies.
 
+[See the demo](https://mathislucka.github.io/a11y-datepicker)
+
 ## Roadmap
 
 - support custom icons
