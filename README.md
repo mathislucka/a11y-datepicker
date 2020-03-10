@@ -8,7 +8,7 @@ It should be small.
 
 It does not have any external dependencies.
 
-It should natively support IE11 (no babel neede).
+It should natively support IE11 (no babel needed).
 
 It should fall back to HTML native date input on mobile.
 
