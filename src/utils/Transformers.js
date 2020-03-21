@@ -17,11 +17,11 @@ function datePart (dateFormat) {
 }
 
 function findSeparator (format) {
-    var separator
-    if (format.indexOf('.') > -1) separator = '.'
-    if (format.indexOf('-') > -1) separator = '-'
-    if (format.indexOf('/') > -1) separator = '/'
-    return separator
+    return getSeparator(format, '.') || getSeparator(format, '-') || getSeparator(format, '/')
+}
+        
+function getSeparator (format, separator) {
+    return (format.indexOf(separator) > -1) ? separator : null
 }
 
 function toDate (date, format) {
