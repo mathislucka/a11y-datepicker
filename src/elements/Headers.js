@@ -8,14 +8,14 @@ function createPrimaryHeader(year, month, monthString, isLeftEdge, isRightEdge) 
     headerContent.appendChild(document.createTextNode(monthString + ' ' + year))
 
     if (isLeftEdge) {
-        var prev = createSwitcher('prev', year, month)
+        var prev = createSwitcher('-1', year, month)
         header.appendChild(prev)
     }
 
     header.appendChild(headerContent)
    
     if (isRightEdge) {
-        var next = createSwitcher('next', year, month)
+        var next = createSwitcher('1', year, month)
         header.appendChild(next)
     }
 

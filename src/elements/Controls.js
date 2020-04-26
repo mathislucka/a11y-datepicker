@@ -3,13 +3,10 @@ function createSwitcher(direction, year, month) {
     var btn = document.createElement('button')
     btn.type = 'button'
     btn.value = year + '$' + month
-    if (direction === 'prev') {
-        btn.setAttribute('data-ad-id', '-1')
-        btn.appendChild(document.createTextNode('<'))
-    } else {
-        btn.setAttribute('data-ad-id', '1')
-        btn.appendChild(document.createTextNode('>'))
-    }
+    var icon = direction === '-1' ? '<' : '>'
+    
+    btn.setAttribute('data-ad-id', direction)
+    btn.appendChild(document.createTextNode(icon))
     switcher.appendChild(btn)
     return switcher
 }
