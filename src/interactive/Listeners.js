@@ -33,7 +33,7 @@ function Listeners (config, setState, getState) {
         
         if (dateCandidate) {
             setState('selectedDate', dateCandidate)
-            redrawCalendar(el.parentNode, getState('selectedDate'), config)
+            getElementById('group' + config.id) && redrawCalendar(el.parentNode, getState('selectedDate'), config)
             el.setCustomValidity('')
         } else {
             el.setCustomValidity('invalid date')
@@ -63,7 +63,13 @@ function Listeners (config, setState, getState) {
             removeCalendar(inputEl.parentNode, config.id)
             inputEl.setCustomValidity('')
             inputEl.focus()
+            emitInputEvent(inputEl)
         }
+    }
+
+    function emitInputEvent (target) {
+        var e = new Event('input', { bubbles: true })
+        target.dispatchEvent(e)
     }
 
     function triggerSwitch(e) {
