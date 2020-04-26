@@ -14,7 +14,12 @@ function renderGroup(el, date, config, before, after) {
     })
 
     group.setAttribute('data-ad-id', config.id + 'group')
-    el.appendChild(group)
+    group.setAttribute('data-ad-selector', 'datepicker-container')
+    var container = document.createElement('div')
+    container.setAttribute('data-ad-selector', 'group-container')
+    container.setAttribute('data-ad-id', config.id + 'group-container')
+    container.appendChild(group)
+    el.appendChild(container)
 }
 
 function shiftGroup (date, direction, config) {

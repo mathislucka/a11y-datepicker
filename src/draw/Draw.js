@@ -3,15 +3,15 @@ import { getElementById } from '../dom/Dom.js'
 import { toDate, toDateString } from '../utils/Transformers.js'
 
 function redrawCalendar (calendarRootElement, drawingDate, config, before, after) {
-    before = before || config.monthsBeforeCurrent
-    after = after || config.monthsAfterCurrent
+    before = isNaN(before) ? config.monthsBeforeCurrent : before
+    after = isNaN(after) ? config.monthsAfterCurrent : after
     removeCalendar(calendarRootElement, config.id)
     renderGroup(calendarRootElement, drawingDate, config, before, after)
 }
 
-function removeCalendar (calendarRootElement, calendarId) {
-    var calendar = getElementById(calendarId + 'group')
-    calendar && calendarRootElement.removeChild(calendar)
+function removeCalendar (calendarRootElement, id) {
+    var calendarContainer = getElementById(id + 'group-container')
+    calendarContainer && calendarRootElement.removeChild(calendarContainer)
 }
 
 function drawDateInput (calendarRootElement, config) {
