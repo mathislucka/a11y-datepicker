@@ -1,4 +1,4 @@
-import { findFirstDay, getWeekdays, shiftDate, shiftMonth, getCurrentDayOfWeek, createDateFromArray } from './../src/utils/DateManipulation.js'
+import { findFirstDay, getWeekdays, shiftDate, shiftMonth, getCurrentDayOfWeek, createDateFromArray } from './../src/js/utils/DateManipulation.js'
 
 describe("incrementing or decrementing dates", () => {
     test("it should increment a given date by n days", () => {

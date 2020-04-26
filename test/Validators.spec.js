@@ -1,4 +1,4 @@
-import { isInRange, isValidFormat } from './../src/utils/Validators.js'
+import { isInRange, isValidFormat } from './../src/js/utils/Validators.js'
 
 describe("checking if a date string matches a specified date format", () => {
     test("it should return false if the date is not separated by . or - or /", () => {

@@ -1,4 +1,4 @@
-import { createRange } from './../src/utils/Range.js'
+import { createRange } from './../src/js/utils/Range.js'
 
 describe("range creation function", () => {
     test("it should create a range including all numbers from start to end", () => {

@@ -1,3 +1,13 @@
+[data-ad-selector="datepicker-container"] {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+[data-ad-selector="group-container"] {
+    position: relative;
+}
+
 .visuallyhidden:not(:focus):not(:active) {
     position: absolute;
   
@@ -14,11 +24,12 @@
     overflow: hidden;
   }
 
-table {
+.dark table {
     border-collapse: collapse;
-    font-size: 1.2rem;
+    font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     margin-top: .5em;
+    margin-right: .2em;
     color: #fff;
     background-color: #3f4458;
     -webkit-box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
@@ -26,42 +37,46 @@ table {
     box-shadow: 1px 1px 1px 0px rgba(161,161,161,1);
 }
 
-td, th {
+.dark td, th {
     text-align: center;
     vertical-align: middle;
 }
 
-thead {
+.dark thead {
     border-bottom: 1px solid #8D90A1;
     padding-bottom: 1em;
 }
 
-th {
+.dark th {
     padding-bottom: 2px;
 }
 
-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+.dark button {
     font-size: 100%;
     font-family: inherit;
     color: inherit;
-    background-color: #3f4458;;
+    background-color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: none;
     padding: 4px;
     min-width: calc(2em + 4px);
 }
 
-button:focus {
+.dark button:focus {
     border: 2px solid deeppink;
     color: deeppink;
     padding: 2px;
 }
 
-button[aria-disabled=true] {
+.dark button[aria-disabled=true] {
     color: darkgrey;
 }
 
-input[type=text]:invalid {
+.dark input[type=text]:invalid {
     border: 2px solid red;
+}
+
+.dark svg {
+    fill: #fff;
 }

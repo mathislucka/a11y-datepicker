@@ -24,10 +24,17 @@
             </div>
             <label for="demo">Pick a date</label>
             <div id="_ad-datepicker"></div>
+            <div>
+                <input type="text">
+            </div>
         </div>
         <script src="examples/bundle.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            var dp = new a11yDatepicker({ inputName: 'demo' })
+            var dp = new a11yDatepicker({ inputName: 'demo', monthsBeforeCurrent: 1 })
+            function test (e) {
+                console.log(e)
+            }
+            document.getElementById('_ad-datepicker').addEventListener('input', test)
         </script>
     </body>
 </html>

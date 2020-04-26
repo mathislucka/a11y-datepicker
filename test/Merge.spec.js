@@ -1,4 +1,4 @@
-import { merge } from './../src/utils/Merge.js'
+import { merge } from './../src/js/utils/Merge.js'
 
 describe("merging 2 objects", () => {
     test("it should merge 2 objects and return a new object", () => {
