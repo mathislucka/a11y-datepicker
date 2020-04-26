@@ -6,9 +6,7 @@ import path from 'path'
 export default {
   input: 'src/main.js',
   plugins: [
-    postcss({
-      extract: path.resolve('dist/css/style.css')
-    }),
+    postcss({}),
     copy({
       targets: [
         { src: 'src/css/themes/*', dest: 'dist/css/themes' },
