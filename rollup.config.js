@@ -1,7 +1,6 @@
 import {terser} from 'rollup-plugin-terser'
 import copy from 'rollup-plugin-copy'
 import postcss from 'rollup-plugin-postcss'
-import path from 'path'
 
 export default {
   input: 'src/main.js',
@@ -20,7 +19,7 @@ export default {
       format: 'iife',
       name: 'a11yDatepicker',
       plugins: [
-        //terser(),
+        terser(),
       ]
     }
   ]

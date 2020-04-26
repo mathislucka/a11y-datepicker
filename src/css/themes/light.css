@@ -1,0 +1,60 @@
+.light table {
+    border-collapse: collapse;
+    border: 1px solid #d3d3d3;
+    font-size: .9rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin-top: .5em;
+    margin-right: .3em;
+    color: #003064;
+    background-color: #fff;
+}
+
+.light td, th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.light thead {
+    border-bottom: 1px solid #8D90A1;
+    padding-bottom: 1em;
+}
+
+.light th {
+    padding-bottom: 2px;
+}
+
+.light button {
+    font-size: 100%;
+    font-family: inherit;
+    color: inherit;
+    background-color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    padding: 4px;
+    min-width: calc(2em + 4px);
+}
+
+.light button:focus {
+    border: 2px solid #003064;
+    color: #d4004b;
+    padding: 2px;
+}
+
+.light button:hover {
+    border: 2px solid #003064;
+    color: #d4004b;
+    padding: 2px;
+}
+
+.light button[aria-disabled=true] {
+    color: darkgrey;
+}
+
+.light input[type=text]:invalid {
+    border: 2px solid red;
+}
+
+.light svg {
+    fill: #003064;
+}
