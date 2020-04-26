@@ -82,6 +82,7 @@ function Listeners (config, setState, getState) {
     }
     
     function clickSwitch (e) {
+        // console.log(e)
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)

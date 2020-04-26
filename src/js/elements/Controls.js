@@ -9,6 +9,17 @@ function createSwitcher(direction, year, month) {
     
     btn.setAttribute('data-ad-id', direction)
     btn.innerHTML = icon
+    
+    // This is a bit hacky. It should cancel click events on svg or path
+    // and dispatch an event from btn instead so that it can be handled by event listeners higher up the dom.
+    function setEventTarget (ev) {
+            ev.stopPropagation()
+            btn.removeEventListener('click', setEventTarget)
+            var e = new Event('click', { bubbles: true })
+            btn.dispatchEvent(e)
+    }
+
+    btn.addEventListener('click', setEventTarget)
     switcher.appendChild(btn)
     return switcher
 }
