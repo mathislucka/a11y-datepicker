@@ -4,7 +4,8 @@
         <meta charset="utf-8"/>
         <title>A11y-Datepicker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-        <link rel="stylesheet" href="examples/style.css" />
+        <link rel="stylesheet" href="examples/css/style.css" />
+        <link rel="stylesheet" href="examples/css/themes/dark.css" />
         <link rel="stylesheet" href="examples/demo.css" />
     </head>
     <body>
@@ -30,7 +31,7 @@
         </div>
         <script src="examples/bundle.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            var dp = new a11yDatepicker({ inputName: 'demo', monthsBeforeCurrent: 1 })
+            var dp = new a11yDatepicker({ inputName: 'demo', monthsBeforeCurrent: 1, id: '_ad-datepicker' })
             function test (e) {
                 console.log(e)
             }

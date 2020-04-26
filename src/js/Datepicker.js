@@ -15,7 +15,8 @@ var defaultConfig = {
     weekStartsOn: 1,
     id: '_ad-',
     dateFormat: 'yyyy-mm-dd',
-    inputName: 'datepicker-input'
+    inputName: 'datepicker-input',
+    theme: 'dark'
 }
 
 var defaultTranslations = {
@@ -45,8 +46,9 @@ function Datepicker(userConfig, userTranslations) {
         config.translations = merge(defaultTranslations, userTranslations || {})
         config.monthsBeforeCurrent = config.monthsBeforeCurrent * -1
         config.weekdays = getWeekdays(findFirstDay(config.weekStartsOn), config.locale, config.weekDayFormat)
-        
-        var calendarRootElement = document.getElementById(config.id + 'datepicker')
+        console.log(config.id)
+        var calendarRootElement = document.getElementById(config.id)
+        calendarRootElement.classList.add(config.theme)
         
         if (!isMobileDevice()) {
             var inputEl = drawDateInput(calendarRootElement, config)

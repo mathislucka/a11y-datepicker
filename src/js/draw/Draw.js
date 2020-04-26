@@ -18,7 +18,7 @@ function drawDateInput (calendarRootElement, config) {
     var description = document.createElement('p')
     description.appendChild(document.createTextNode(config.translations.description))
     description.classList.add('visuallyhidden')
-    description.id = config.id + description
+    description.id = config.id + 'description'
     calendarRootElement.appendChild(description)
 
     var dateInput = document.createElement('input')
