@@ -27,11 +27,6 @@ function createRows(day, last, dayFunc, config) {
             currentDay += 1
             counter += 1
         }
-        // var empties = document.createDocumentFragment()
-        // for (var i = 0; i < 7 - counter; i++) {
-        //     var child = document.createElement('td')
-        //     empties.appendChild(child)
-        // }
         var empties = createEmptyCells(7 - counter)
         wrapper.appendChild(empties)
         fragment.appendChild(wrapper)
@@ -41,7 +36,6 @@ function createRows(day, last, dayFunc, config) {
 }
 
 function createFirstRow (start, dayFunc, config) {
-    // debugger
     var counter = start
     var firstRow = document.createElement('tr')
     var day = 1
@@ -52,28 +46,6 @@ function createFirstRow (start, dayFunc, config) {
         day += 1
     }
     return { el: firstRow, end: day }
-}
-
-function createEdgeRow (start, end, pad) {
-    var wrapper = document.createElement('tr')
-    for (var i = start; i < end; i++) {
-
-    }
-}
-
-function padRow (row, direction) {
-    var out = document.createDocumentFragment()
-    var rowLength = Array.prototype.slice.call(row.getElementsByTagName('TD')).length
-    var missing = 7 - rowLength
-    var empties = createEmptyCells(missing)
-    if (direction === 'left') {
-        out.appendChild(empties)
-        out.appendChild(row)
-    } else {
-        out.appendChild(row)
-        out.appendChild(empties)
-    }
-    return out
 }
 
 function createEmptyCells (n) {
