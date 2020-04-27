@@ -1,3 +1,4 @@
+import { emitEvent } from './../dom/Dom.js'
 function createSwitcher(direction, year, month) {
     var switcher = document.createElement('th')
     var btn = document.createElement('button')
@@ -15,8 +16,7 @@ function createSwitcher(direction, year, month) {
     function setEventTarget (ev) {
             ev.stopPropagation()
             btn.removeEventListener('click', setEventTarget)
-            var e = new Event('click', { bubbles: true })
-            btn.dispatchEvent(e)
+            emitEvent(btn, 'click')
     }
 
     btn.addEventListener('click', setEventTarget)

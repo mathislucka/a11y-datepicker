@@ -19,7 +19,7 @@ export default {
       format: 'iife',
       name: 'a11yDatepicker',
       plugins: [
-        terser(),
+        //terser(),
       ]
     }
   ]

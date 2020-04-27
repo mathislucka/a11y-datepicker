@@ -1,22 +1,22 @@
 import { shiftGroup } from './../elements/Groups.js'
 import { isValidFormat, isInRange } from '../utils/Validators.js'
 import { toDate, toDateString } from '../utils/Transformers.js'
-import { getElementById, getFocussedElement, isDay, isSwitcher, on } from '../dom/Dom.js'
+import { getElementById, getFocussedElement, isDay, isSwitcher, on, emitEvent } from '../dom/Dom.js'
 import { createDateFromArray } from './../utils/DateManipulation.js'
 import { rootKeyBindings } from '../logic/KeyConfig.js'
 import { redrawCalendar, removeCalendar } from '../draw/Draw.js'
 import { createDateFromDayEl } from '../utils/Transformers.js'
 
-function Listeners (config, setState, getState) {
+function Listeners (config, setDate, getDate) {
 
     this.setListeners = function setListeners (rootEl, inputEl) {
-        var focus = on('focus', inputEl, openDatepicker)
-        var click = on('click', rootEl, clickSwitch)
-        var keydown = on('keydown', rootEl, keyPressSwitch)
-        var input = on('input', inputEl, updateDatePicker)
-        var inputClick = on('click', inputEl, openDatepicker)
-        var blur = on('focusout', inputEl, closeDatePicker)
-        var mousedown = on('mousedown', rootEl, preventBlur)
+        on('focus', inputEl, openDatepicker)
+        on('click', rootEl, clickSwitch)
+        on('keydown', rootEl, keyPressSwitch)
+        on('input', inputEl, updateDatePicker)
+        on('click', inputEl, openDatepicker)
+        on('focusout', inputEl, closeDatePicker)
+        on('mousedown', rootEl, preventBlur)
     }
 
     function preventBlur (e) {
@@ -32,8 +32,8 @@ function Listeners (config, setState, getState) {
             && toDate(el.value, config.dateFormat)
         
         if (dateCandidate) {
-            setState('selectedDate', dateCandidate)
-            getElementById('group' + config.id) && redrawCalendar(el.parentNode, getState('selectedDate'), config)
+            setDate(dateCandidate)
+            getElementById('group' + config.id) && redrawCalendar(el.parentNode, getDate(), config)
             el.setCustomValidity('')
         } else {
             el.setCustomValidity('invalid date')
@@ -49,7 +49,7 @@ function Listeners (config, setState, getState) {
     function openDatepicker (e) {
         if ((e.target.value === '' || e.type === 'click') && !getElementById(config.id + 'group')) {
             var el = e.target.parentNode
-            var date = getState('selectedDate') || (config.initialDate && toDate(config.initialDate, config.dateFormat)) || new Date()
+            var date = getDate() || (config.initialDate && toDate(config.initialDate, config.dateFormat)) || new Date()
             redrawCalendar(el, date, config)
             getElementById(config.id + 'group').scrollIntoView()
         }
@@ -59,17 +59,12 @@ function Listeners (config, setState, getState) {
         var date = createDateFromDayEl(target)
         if (isInRange(date, config.minDate, config.maxDate, config.dateFormat)) {
             inputEl.value = toDateString(date, config.dateFormat)
-            setState('selectedDate', date)
+            setDate(date)
             removeCalendar(inputEl.parentNode, config.id)
             inputEl.setCustomValidity('')
             inputEl.focus()
-            emitInputEvent(inputEl)
+            emitEvent(inputEl, 'input')
         }
-    }
-
-    function emitInputEvent (target) {
-        var e = new Event('input', { bubbles: true })
-        target.dispatchEvent(e)
     }
 
     function triggerSwitch(e) {
@@ -82,7 +77,6 @@ function Listeners (config, setState, getState) {
     }
     
     function clickSwitch (e) {
-        // console.log(e)
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)
@@ -92,7 +86,7 @@ function Listeners (config, setState, getState) {
     function keyPressSwitch (e) {
         var evtSource = isDay(getFocussedElement()) ? 'day' : null
         var key = e.shiftKey ? e.which + 'shift' : e.which
-        rootKeyBindings[key] && rootKeyBindings[key](e, evtSource, config, getState('selectedDate'))
+        rootKeyBindings[key] && rootKeyBindings[key](e, evtSource, config, getDate())
     }
 }
 

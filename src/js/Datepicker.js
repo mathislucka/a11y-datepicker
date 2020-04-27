@@ -37,29 +37,28 @@ var defaultTranslations = {
 function Datepicker(userConfig, userTranslations) {
     
     var state = { selectedDate: null }
-    var setState = function (prop, value) { state[prop] = value }
-    var getState = function (key) { return state[key] }
+    var setDate = function (value) { state.selectedDate = value }
+    var getDate = function () { return state.selectedDate }
 
-    function initialize (userConfig, userTranslations, setState, getState) {
+    function initialize (userConfig, userTranslations, setDate, getDate) {
         
         var config = merge(defaultConfig, userConfig || {})
         config.translations = merge(defaultTranslations, userTranslations || {})
         config.monthsBeforeCurrent = config.monthsBeforeCurrent * -1
         config.weekdays = getWeekdays(findFirstDay(config.weekStartsOn), config.locale, config.weekDayFormat)
-        console.log(config.id)
         var calendarRootElement = document.getElementById(config.id)
         calendarRootElement.classList.add(config.theme)
         
         if (!isMobileDevice()) {
             var inputEl = drawDateInput(calendarRootElement, config)
-            var listeners = new Listeners(config, setState, getState)
+            var listeners = new Listeners(config, setDate, getDate)
             listeners.setListeners(calendarRootElement, inputEl)
         } else {
             drawMobileDateInput(calendarRootElement, config)
         }
     }
 
-    initialize(userConfig, userTranslations, setState, getState)
+    initialize(userConfig, userTranslations, setDate, getDate)
 }
 
 export { Datepicker }

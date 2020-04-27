@@ -23,10 +23,6 @@ function getFocussedDay () {
 
 function on (evt, el, handler) {
     el.addEventListener(evt, handler, true)
-  
-    return function () {
-      el.removeEventListener(evt, handler, true);
-    }
 }
 
 function isDay (el) {
@@ -38,4 +34,9 @@ function isSwitcher (el) {
     return dir === '1' || dir === '-1'
 }
 
-export { focusElement, getElementById, getElementByDate, getFocussedElement, on, isDay, isSwitcher, getFocussedDay }
+function emitEvent (target, type) {
+    var e = new Event(type, { bubbles: true })
+    target.dispatchEvent(e)
+}
+
+export { emitEvent, focusElement, getElementById, getElementByDate, getFocussedElement, on, isDay, isSwitcher, getFocussedDay }
