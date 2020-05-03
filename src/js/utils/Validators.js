@@ -27,4 +27,4 @@ function isInRange (date, min, max, format) {
     return (!mi || mi <= d) && (!ma || ma >= d)
 }
 
-export { isValidFormat, isInRange }
+export { isValidDate, isValidFormat, isInRange }

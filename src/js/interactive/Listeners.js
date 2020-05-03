@@ -27,18 +27,7 @@ function Listeners (config, setDate, getDate) {
     }
 
     function updateDatePicker (e) {
-        var el = e.target
-        var dateCandidate = isValidFormat(el.value, config.dateFormat)
-            && isInRange(el.value, config.minDate, config.maxDate, config.dateFormat)
-            && toDate(el.value, config.dateFormat)
-        
-        if (dateCandidate) {
-            setDate(dateCandidate)
-            getElementById('group' + config.id) && redrawCalendar(el.parentNode, getDate(), config)
-            el.setCustomValidity('')
-        } else {
-            el.setCustomValidity('invalid date')
-        }
+        setDate(e.target.value, true)
     }
     
     function closeDatePicker (e) {
@@ -58,11 +47,8 @@ function Listeners (config, setDate, getDate) {
     
     function selectDate (target, inputEl) {
         var date = createDateFromDayEl(target)
-        if (isInRange(date, config.minDate, config.maxDate, config.dateFormat)) {
-            inputEl.value = toDateString(date, config.dateFormat)
-            setDate(date)
+        if (setDate(date)) {
             removeCalendar(inputEl.parentNode, config.id)
-            inputEl.setCustomValidity('')
             inputEl.focus()
             emitEvent(inputEl, 'input')
         }

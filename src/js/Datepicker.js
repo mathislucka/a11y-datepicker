@@ -3,6 +3,7 @@ import { Listeners } from './interactive/Listeners.js'
 import { merge } from './utils/Merge.js'
 import { drawDateInput, drawMobileDateInput } from './draw/Draw.js'
 import { isMobileDevice } from './utils/DetectMobile.js'
+import { dateSetter, dateGetter } from './logic/stateManipulation.js'
 
 var defaultConfig = {
     locale: 'en-EN',
@@ -37,28 +38,30 @@ var defaultTranslations = {
 function Datepicker(userConfig, userTranslations) {
     
     var state = { selectedDate: null }
-    var setDate = function (value) { state.selectedDate = value }
-    var getDate = function () { return state.selectedDate }
-
-    function initialize (userConfig, userTranslations, setDate, getDate) {
         
-        var config = merge(defaultConfig, userConfig || {})
-        config.translations = merge(defaultTranslations, userTranslations || {})
-        config.monthsBeforeCurrent = config.monthsBeforeCurrent * -1
-        config.weekdays = getWeekdays(findFirstDay(config.weekStartsOn), config.locale, config.weekDayFormat)
-        var calendarRootElement = document.getElementById(config.id)
-        calendarRootElement.classList.add(config.theme)
-        
-        if (!isMobileDevice()) {
-            var inputEl = drawDateInput(calendarRootElement, config)
-            var listeners = new Listeners(config, setDate, getDate)
-            listeners.setListeners(calendarRootElement, inputEl)
-        } else {
-            drawMobileDateInput(calendarRootElement, config)
-        }
+    var config = merge(defaultConfig, userConfig || {})
+    config.translations = merge(defaultTranslations, userTranslations || {})
+    config.monthsBeforeCurrent = config.monthsBeforeCurrent * -1
+    config.weekdays = getWeekdays(findFirstDay(config.weekStartsOn), config.locale, config.weekDayFormat)
+    var calendarRootElement = document.getElementById(config.id)
+    calendarRootElement.classList.add(config.theme)
+    
+    if (!isMobileDevice()) {
+        var inputEl = drawDateInput(calendarRootElement, config)
+        var setDate = dateSetter(state, inputEl, config)
+        var getDate = dateGetter(state, config.dateFormat)
+        var getDateString = dateGetter(state, config.dateFormat, true)
+        var listeners = new Listeners(config, setDate, getDate)
+        listeners.setListeners(calendarRootElement, inputEl)
+    } else {
+        drawMobileDateInput(calendarRootElement, config)
     }
 
-    initialize(userConfig, userTranslations, setDate, getDate)
+    return {
+        setDate: setDate,
+        getDate: getDate,
+        getDateString: getDateString
+    }
 }
 
 export { Datepicker }
