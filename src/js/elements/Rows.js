@@ -19,18 +19,16 @@ function createRows(day, last, dayFunc, config) {
         currentDay = row.day
     }
 
-    if (currentDay <= last) {
-        var wrapper = document.createElement('tr')
-        var counter = 0
-        for (var i = currentDay; i <= last; i++) {
-            wrapper.appendChild(dayFunc(currentDay, config.weekdays[counter]))
-            currentDay += 1
-            counter += 1
-        }
-        var empties = createEmptyCells(7 - counter)
-        wrapper.appendChild(empties)
-        fragment.appendChild(wrapper)
+    var wrapper = document.createElement('tr')
+    var counter = 0
+    for (var i = currentDay; i <= last; i++) {
+        wrapper.appendChild(dayFunc(currentDay, config.weekdays[counter]))
+        currentDay += 1
+        counter += 1
     }
+    var empties = createEmptyCells(7 - counter)
+    wrapper.appendChild(empties)
+    fragment.appendChild(wrapper)
 
     return fragment
 }
