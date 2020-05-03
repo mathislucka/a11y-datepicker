@@ -1,15 +1,21 @@
 {
-  "name": "ally-datepicker",
+  "name": "a11y-datepicker",
   "version": "0.0.0",
   "description": "...an early work in progress accessible datepicker",
-  "main": "./src/main.js",
+  "main": "dist/index.min.js",
+	"module": "dist/index.es.min.js",
+	"browser": "dist/index.browser.min.js",
+	"files": [
+		"dist",
+		"README.md"
+	],
   "scripts": {
     "test": "NODE_ICU_DATA=node_modules/full-icu jest",
     "build": "rollup --config rollup.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "https://github.com/mathislucka/a11y-datepicker"
   },
   "author": "",
   "license": "MIT",
@@ -21,10 +27,8 @@
     "jest": "^25.4.0",
     "path": "^0.12.7",
     "rollup": "^2.7.2",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-terser": "^5.3.0"
-  },
-  "dependencies": {
-    "rollup-plugin-copy": "^3.3.0"
   }
 }
