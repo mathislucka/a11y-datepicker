@@ -1,11 +1,12 @@
 import { shiftGroup } from './../elements/Groups.js'
 import { isValidFormat, isInRange } from '../utils/Validators.js'
 import { toDate, toDateString } from '../utils/Transformers.js'
-import { getElementById, getFocussedElement, isDay, isSwitcher, on, emitEvent } from '../dom/Dom.js'
+import { focusElement, getElementById, getFocussedElement, isDay, isSwitcher, on, emitEvent } from '../dom/Dom.js'
 import { createDateFromArray } from './../utils/DateManipulation.js'
-import { rootKeyBindings } from '../logic/KeyConfig.js'
+import { keyBindings } from '../logic/KeyConfig.js'
 import { redrawCalendar, removeCalendar } from '../draw/Draw.js'
 import { createDateFromDayEl } from '../utils/Transformers.js'
+import { switchDateFocus, focusCurrentDay } from '../logic/CalendarChanges.js'
 
 function Listeners (config, setDate, getDate) {
 
@@ -82,11 +83,19 @@ function Listeners (config, setDate, getDate) {
         isDay(el) && selectDate(el, inputEl)
         isSwitcher(el) && triggerSwitch(e)
     }
-    
+
     function keyPressSwitch (e) {
-        var evtSource = isDay(getFocussedElement()) ? 'day' : null
-        var key = e.shiftKey ? e.which + 'shift' : e.which
-        rootKeyBindings[key] && rootKeyBindings[key](e, evtSource, config, getDate())
+        var isDayFocussed = isDay(getFocussedElement())
+        var key = e.key
+        var dateChange = keyBindings[key]
+        if (e.shiftKey && (key === 'Down' || key === 'ArrowDown')) {
+            focusCurrentDay(e.currentTarget, config, getDate())
+        } else if (dateChange && isDayFocussed) {
+            switchDateFocus(dateChange, e.currentTarget, config)
+        } else if (key === 'Esc' || key === 'Escape') {
+            focusElement(getElementById(config.id + 'input'))
+            removeCalendar(e.currentTarget, config.id)
+        }
     }
 }
 

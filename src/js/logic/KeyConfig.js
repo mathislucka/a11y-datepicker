@@ -1,14 +1,12 @@
-import { getElementById, focusElement } from '../dom/Dom.js'
-import { switchDateFocus, focusCurrentDay } from './CalendarChanges.js'
-import { removeCalendar } from '../draw/Draw.js'
-
-var rootKeyBindings = {
-    '39': function (e, evtSource, config) { evtSource === 'day' && switchDateFocus(1, e.currentTarget, config) },
-    '37': function (e, evtSource, config) { evtSource === 'day' && switchDateFocus(-1, e.currentTarget, config) },
-    '38': function (e, evtSource, config) { evtSource === 'day' && switchDateFocus(-7, e.currentTarget, config) },
-    '40': function (e, evtSource, config) { evtSource === 'day' && switchDateFocus(+7, e.currentTarget, config) },
-    '27': function (e, evtSource, config) { focusElement(getElementById(config.id + 'input')); removeCalendar(e.currentTarget, config.id) },
-    '40shift': function (e, evtSource, config, state) { focusCurrentDay(e.currentTarget, config, state) }
+var keyBindings = {
+    'Up': -7,
+    'ArrowUp': -7,
+    'Down': 7,
+    'ArrowDown': 7,
+     'Left': -1,
+     'ArrowLeft': -1,
+     'Right': 1,
+     'ArrowRight': 1
 }
 
-export { rootKeyBindings }
+export { keyBindings }
