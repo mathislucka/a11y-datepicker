@@ -4,7 +4,6 @@
     font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     margin-top: .5em;
-    margin-right: .3em;
     color: #003064;
     background-color: #fff;
 }
@@ -19,8 +18,21 @@
     padding-bottom: 1em;
 }
 
+.light thead > tr:first-child > th {
+    height: 31px;
+}
+
+.light thead > tr:last-child > th {
+    font-weight: normal;
+    color: #8D90A1;
+}
+
 .light th {
     padding-bottom: 2px;
+}
+
+.light td {
+   height: 28px;
 }
 
 .light button {
