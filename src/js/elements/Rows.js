@@ -12,11 +12,13 @@ function createRows(day, last, dayFunc, config) {
     var numRows = Math.floor(((last - day + 1) / 7))
     var currentDay = day
     var fragment = document.createDocumentFragment()
+    var renderedRows = 1
 
     for(var i = 0; i < numRows; i++) {
         var row = createRow(currentDay, dayFunc, config)
         fragment.appendChild(row.el)
         currentDay = row.day
+        renderedRows += 1
     }
 
     var wrapper = document.createElement('tr')
@@ -26,9 +28,16 @@ function createRows(day, last, dayFunc, config) {
         currentDay += 1
         counter += 1
     }
+    renderedRows += 1
     var empties = createEmptyCells(7 - counter)
     wrapper.appendChild(empties)
     fragment.appendChild(wrapper)
+    while (renderedRows < 6) {
+        var tr = document.createElement('tr')
+        tr.appendChild(createEmptyCells(7))
+        fragment.appendChild(tr)
+        renderedRows += 1
+    }
 
     return fragment
 }
