@@ -41,7 +41,11 @@ function Listeners (config, setDate, getDate) {
             var el = e.target.parentNode
             var date = getDate() || (config.initialDate && toDate(config.initialDate, config.dateFormat)) || new Date()
             redrawCalendar(el, date, config)
-            getElementById(config.id + 'group').scrollIntoView()
+            var calendar = getElementById(config.id + 'group')
+            var bounding = calendar.getBoundingClientRect()
+            if (bounding.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
+                calendar.scrollIntoView()
+            }
         }
     }
     
