@@ -1,11 +1,15 @@
+.light [data-ad-selector="datepicker-container"] {
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+}
 .light table {
     border-collapse: collapse;
-    border: 1px solid #d3d3d3;
     font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     margin-top: .5em;
     color: #003064;
     background-color: #fff;
+    width: auto;
 }
 
 .light td, th {
