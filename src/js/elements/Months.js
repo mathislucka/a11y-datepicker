@@ -21,12 +21,14 @@ function createMonth(date, isLeftEdge, isRightEdge, config) {
 
     var table = document.createElement('table')
     var head = document.createElement('thead')
+    var body = document.createElement('tbody')
     head.appendChild(createPrimaryHeader(year, month, monthString, isLeftEdge, isRightEdge))
     head.appendChild(createSecondaryHeader(config.weekdays))
     table.appendChild(head)
     var firstRow = createFirstRow(start, dayFunc, config)
-    table.appendChild(firstRow.el)
-    table.appendChild(createRows(firstRow.end, lastDay, dayFunc, config))
+    body.appendChild(firstRow.el)
+    body.appendChild(createRows(firstRow.end, lastDay, dayFunc, config))
+    table.appendChild(body)
 
     return table
 }

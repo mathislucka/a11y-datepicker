@@ -17,6 +17,7 @@ function configureDays (month, year, localMonth, rangeChecker) {
     return function (day, weekday) {
         var cell = document.createElement('td')
         var date = createDateFromArray([year, month, day])
+        date.setHours(0,0,0,0) == (new Date()).setHours(0,0,0,0) && cell.classList.add('ad-is-today')
         cell.appendChild(createButton(day, month, year, localMonth, weekday, rangeChecker(date)))
         return cell
     }

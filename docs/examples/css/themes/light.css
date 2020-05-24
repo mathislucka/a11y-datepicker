@@ -1,3 +1,7 @@
+.light .ad-is-today button {
+    background-color:  #ffd9b3;
+}
+
 .light [data-ad-selector="datepicker-container"] {
     border: 1px solid #d3d3d3;
     background-color: #fff;
@@ -18,7 +22,7 @@
 }
 
 .light thead {
-    border-bottom: 1px solid #8D90A1;
+    border-bottom: 1px solid rgba(211,211,211, 0.6);
     padding-bottom: 1em;
 }
 
@@ -28,7 +32,7 @@
 
 .light thead > tr:last-child > th {
     font-weight: normal;
-    color: #8D90A1;
+    color: #505362;
 }
 
 .light th {
@@ -73,4 +77,8 @@
 
 .light svg {
     fill: #003064;
+}
+
+.light table ~ table tbody {
+    border-left: 1px solid rgba(211,211,211, 0.6);
 }
