@@ -7,9 +7,10 @@ import { keyBindings } from '../logic/KeyConfig.js'
 import { redrawCalendar, removeCalendar } from '../draw/Draw.js'
 import { createDateFromDayEl } from '../utils/Transformers.js'
 import { switchDateFocus, focusCurrentDay } from '../logic/CalendarChanges.js'
+import { Rules } from '../logic/Rules.js'
 
 function Listeners (config, setDate, getDate) {
-
+    var rules = new Rules(config)
     this.setListeners = function setListeners (rootEl, inputEl) {
         on('focus', inputEl, openDatepicker)
         on('click', rootEl, clickSwitch)
@@ -29,9 +30,10 @@ function Listeners (config, setDate, getDate) {
     function updateDatePicker (e) {
         setDate(e.target.value, true)
     }
+
     
     function closeDatePicker (e) {
-        if (!e.relatedTarget || !e.relatedTarget.getAttribute('data-ad-id')) {
+        if (rules.shouldCloseOnFocusOut(e)) {
             removeCalendar(e.currentTarget.parentNode, config.id)
         }
     }

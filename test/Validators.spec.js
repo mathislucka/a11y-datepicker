@@ -10,7 +10,7 @@ describe("checking if a date string matches a specified date format", () => {
       })
 
       test("it should return false if the date does not match the specified format", () => {
-        const date = '01,01,2020'
+        const date = '01/01/2020'
         const format = 'dd.mm.yyyy'
         const output = false
     
