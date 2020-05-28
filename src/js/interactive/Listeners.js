@@ -1,6 +1,5 @@
 import { shiftGroup } from './../elements/Groups.js'
-import { isValidFormat, isInRange } from '../utils/Validators.js'
-import { toDate, toDateString } from '../utils/Transformers.js'
+import { toDate } from '../utils/Transformers.js'
 import { focusElement, getElementById, getFocussedElement, isDay, isSwitcher, on, emitEvent } from '../dom/Dom.js'
 import { createDateFromArray } from './../utils/DateManipulation.js'
 import { keyBindings } from '../logic/KeyConfig.js'
@@ -11,14 +10,15 @@ import { Rules } from '../logic/Rules.js'
 
 function Listeners (config, setDate, getDate) {
     var rules = new Rules(config)
+    this.activeListeners = []
     this.setListeners = function setListeners (rootEl, inputEl) {
-        on('focus', inputEl, openDatepicker)
-        on('click', rootEl, clickSwitch)
-        on('keydown', rootEl, keyPressSwitch)
-        on('input', inputEl, updateDatePicker)
-        on('click', inputEl, openDatepicker)
-        on('focusout', inputEl, closeDatePicker)
-        on('mousedown', rootEl, preventBlur)
+        this.activeListeners.push(on('focus', inputEl, openDatepicker))
+        this.activeListeners.push(on('click', rootEl, clickSwitch))
+        this.activeListeners.push(on('keydown', rootEl, keyPressSwitch))
+        this.activeListeners.push(on('input', inputEl, updateDatePicker))
+        this.activeListeners.push(on('click', inputEl, openDatepicker))
+        this.activeListeners.push(on('focusout', inputEl, closeDatePicker))
+        this.activeListeners.push(on('mousedown', rootEl, preventBlur))
     }
 
     function preventBlur (e) {

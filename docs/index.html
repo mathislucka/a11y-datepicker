@@ -36,7 +36,10 @@
                 console.log(dp.getDate())
             }
             document.getElementById('_ad-datepicker').addEventListener('input', test)
-            var dp2 = a11yDatepicker({ id: 'second_datepicker', theme: 'light', locale: 'de-DE', initialDate: '2012-04-12' })
+            var dp2 = a11yDatepicker({ id: 'second_datepicker', theme: 'light', locale: 'de-DE', dateFormat: 'dd.mm.yyyy', maxDate: '01.06.2020' })
+            setTimeout(function () {
+                dp2 = dp2.updateDatepicker({ maxDate: '30.06.2020'})
+            }, 5000)
         </script>
     </body>
 </html>

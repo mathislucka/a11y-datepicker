@@ -1,12 +1,12 @@
-.light .ad-is-today button {
+.ad-is-today .ad-button {
     background-color:  #ffd9b3;
 }
 
-.light [data-ad-selector="datepicker-container"] {
+.ad-div[data-ad-selector="datepicker-container"] {
     border: 1px solid #d3d3d3;
     background-color: #fff;
 }
-.light table {
+.ad-table {
     border-collapse: collapse;
     font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -16,34 +16,34 @@
     width: auto;
 }
 
-.light td, th {
+.ad-td, .ad-th {
     text-align: center;
     vertical-align: middle;
 }
 
-.light thead {
+.ad-thead {
     border-bottom: 1px solid rgba(211,211,211, 0.6);
     padding-bottom: 1em;
 }
 
-.light thead > tr:first-child > th {
+.ad-thead > .ad-tr:first-child > .ad-th {
     height: 31px;
 }
 
-.light thead > tr:last-child > th {
+.ad-thead > .ad-tr:last-child > .ad-th {
     font-weight: normal;
     color: #505362;
 }
 
-.light th {
+.ad-th {
     padding-bottom: 2px;
 }
 
-.light td {
+.ad-td {
    height: 28px;
 }
 
-.light button {
+.ad-button {
     font-size: 100%;
     font-family: inherit;
     color: inherit;
@@ -55,30 +55,30 @@
     min-width: calc(2em + 4px);
 }
 
-.light button:focus {
+.ad-button:focus {
     border: 2px solid #003064;
     color: #d4004b;
     padding: 2px;
 }
 
-.light button:hover {
+.ad-button:hover {
     border: 2px solid #003064;
     color: #d4004b;
     padding: 2px;
 }
 
-.light button[aria-disabled=true] {
+.ad-button[aria-disabled=true] {
     color: darkgrey;
 }
 
-.light input[type=text]:invalid {
+.ad-input[type=text]:invalid {
     border: 2px solid red;
 }
 
-.light svg {
+.ad-svg {
     fill: #003064;
 }
 
-.light table ~ table tbody {
+.ad-table ~ .ad-table .ad-tbody {
     border-left: 1px solid rgba(211,211,211, 0.6);
 }

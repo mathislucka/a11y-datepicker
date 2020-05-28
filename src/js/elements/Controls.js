@@ -9,6 +9,7 @@ function createSwitcher(direction, year, month) {
         : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 16" width="6" height="16"><path fill-rule="evenodd" d="M0 14l6-6-6-6v12z"></path></svg>'
     
     btn.setAttribute('data-ad-id', direction)
+    btn.setAttribute('data-direction', true)
     btn.innerHTML = icon
     
     // This is a bit hacky. It should cancel click events on svg or path

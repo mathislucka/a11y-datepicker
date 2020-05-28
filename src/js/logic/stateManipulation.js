@@ -1,6 +1,5 @@
 import { isValidDate, isValidFormat, isInRange } from '../utils/Validators.js'
 import { toDate, toDateString } from '../utils/Transformers.js'
-import { emitEvent } from '../dom/Dom.js'
 
 function dateSetter (state, dateInputEl, config) {
     var format = config.dateFormat

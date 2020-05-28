@@ -1,5 +1,5 @@
 import { renderGroup } from "../elements/Groups"
-import { getElementById } from '../dom/Dom.js'
+import { setClasses, addClass, getElementById } from '../dom/Dom.js'
 import { toDate, toDateString } from '../utils/Transformers.js'
 
 function redrawCalendar (calendarRootElement, drawingDate, config, before, after) {
@@ -7,6 +7,7 @@ function redrawCalendar (calendarRootElement, drawingDate, config, before, after
     after = isNaN(after) ? config.monthsAfterCurrent : after
     removeCalendar(calendarRootElement, config.id)
     renderGroup(calendarRootElement, drawingDate, config, before, after)
+    setClasses(calendarRootElement, config.classPrefix)
 }
 
 function removeCalendar (calendarRootElement, id) {
@@ -26,7 +27,10 @@ function drawDateInput (calendarRootElement, config) {
     dateInput.type = 'text'
     dateInput.setAttribute('data-ad-id', config.id + 'input')
     dateInput.setAttribute('name', config.inputName)
+    config.required && dateInput.setAttribute('required', true)
+    dateInput = addClass(dateInput, config.inputClass)
     calendarRootElement.appendChild(dateInput)
+    setClasses(calendarRootElement, config.classPrefix)
     return dateInput
 }
 

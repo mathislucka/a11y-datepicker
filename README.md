@@ -56,7 +56,7 @@ dp.getDateString() // returns the date set before as a string
         <script src="index.browser.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             // initialise a new datepicker instance using the same id as used on the div
-            var dp = a11yDatepicker({ id: 'datepicker', theme: 'light' })
+            var dp = a11yDatepicker({ id: 'datepicker' })
         </script>
     </body>
 </html>
@@ -67,17 +67,35 @@ dp.getDateString() // returns the date set before as a string
 a11yDatepicker supports the following options (with defaults)
 ```javascript
 {
-    dateFormat: 'yyyy-mm-dd', // valid delimiters are '.', '-', '/'. Must contain 'd', 'm', 'yyyy'.
-    id: '_ad', // id of the div where the datepicker should be placed
-    initialDate: null, // date where the datepicker modal should open
-    inputName: 'datepicker-input', // name-attribute of the input field inserted (for form submissions)
-    locale: 'en-EN', // used for weekday and month translations (any BCP 47 locale identifier) 
-    weekDayFormat: 'short', // How weekdays should be displayed ('narrow', 'short' or 'long').
-    minDate: null, // lower date limit. Must be a String in the specified dateFormat.
-    maxDate: null, // upper date limit. Must be a String in the specified dateFormat.
-    monthsBeforeCurrent: 0, // How many months to display before the currently active month.
-    monthsAfterCurrent: 0, // How many months to display after the currently active month.
-    weekStartsOn: 1, // What day should the week start on. 0 is Sunday, 6 is Saturday.
-    theme: 'dark' // class-attribute added to the datepicker div. Can be used to scope your CSS. Available themes: 'dark', 'light'
+    // valid delimiters are '.', '-', '/'. Must contain 'd', 'm', 'yyyy'
+    dateFormat: 'yyyy-mm-dd',
+    // id of the div where the datepicker should be placed
+    id: '_ad',
+    // date where the datepicker modal should open
+    initialDate: null,
+    // name-attribute of the input field inserted (for form submissions)
+    inputName: 'datepicker-input',
+    // used for weekday and month translations (any BCP 47 locale identifier) 
+    locale: 'en-EN',
+    // How weekdays should be displayed ('narrow', 'short' or 'long').
+    weekDayFormat: 'short',
+    // lower date limit. Must be a String in the specified dateFormat.
+    minDate: null,
+    // upper date limit. Must be a String in the specified dateFormat.
+    maxDate: null,
+    // How many months to display before the currently active month.
+    monthsBeforeCurrent: 0,
+    // How many months to display after the currently active month.
+    monthsAfterCurrent: 0,
+    // What day should the week start on. 0 is Sunday, 6 is Saturday.
+    weekStartsOn: 1,
+    // all elements of the datepicker instance receive a class consisting of prefix and tag name (e.g. ad-table). Can be used for custom styling.
+    classPrefix: 'ad-',
+    // class that should be added to the datepicker input element
+    inputClass: '',
+    // class that should be added to the datepicker root element
+    rootClass: '',
+    // mark date input as required
+    required: false
 }
 ```
