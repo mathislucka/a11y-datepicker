@@ -1,6 +1,6 @@
 {
   "name": "a11y-datepicker",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "...an early work in progress accessible datepicker",
   "main": "dist/index.min.js",
 	"module": "dist/index.es.min.js",
