@@ -96,6 +96,8 @@ a11yDatepicker supports the following options (with defaults)
     // class that should be added to the datepicker root element
     rootClass: '',
     // mark date input as required
-    required: false
+    required: false,
+    // disable date input
+    disabled: false
 }
 ```

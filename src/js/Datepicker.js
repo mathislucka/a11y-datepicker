@@ -37,7 +37,8 @@ var defaultConfig = {
     rootClass: '',
     classPrefix: 'a1-',
     translations: defaultTranslations,
-    required: false
+    required: false,
+    disabled: false
 }
 
 function Datepicker(userConfig) {
