@@ -3,9 +3,9 @@ import { toDate, toDateString } from '../utils/Transformers.js'
 
 function dateSetter (state, dateInputEl, config) {
     var format = config.dateFormat
-    return function (date, noValue) {
+    return function (date, skipRangeValidation, noValue) {
         var dateCandidate = (isValidDate(date) && date) || (isValidFormat(date, format) && toDate(date, format))
-        if (dateCandidate && isInRange(dateCandidate, config.minDate, config.maxDate, format)) {
+        if (dateCandidate && (isInRange(dateCandidate, config.minDate, config.maxDate, format) || skipRangeValidation)) {
             if (!noValue) dateInputEl.value = toDateString(dateCandidate, format)
             dateInputEl.setCustomValidity('')
             state.selectedDate = dateCandidate

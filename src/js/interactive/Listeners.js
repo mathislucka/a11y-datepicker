@@ -28,7 +28,7 @@ function Listeners (config, setDate, getDate) {
     }
 
     function updateDatePicker (e) {
-        setDate(e.target.value, true)
+        setDate(e.target.value, false, true)
     }
 
     
