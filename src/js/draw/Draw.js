@@ -27,6 +27,7 @@ function drawDateInput (calendarRootElement, config) {
     dateInput.type = 'text'
     dateInput.setAttribute('data-ad-id', config.id + 'input')
     dateInput.setAttribute('name', config.inputName)
+    dateInput.setAttribute('autocomplete', 'off')
     config.required && dateInput.setAttribute('required', true)
     dateInput = addClass(dateInput, config.inputClass)
     calendarRootElement.appendChild(dateInput)
