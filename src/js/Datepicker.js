@@ -70,6 +70,7 @@ function Datepicker(userConfig) {
             drawMobileDateInput(calendarRootElement, config)
         }
         return {
+            getConfig: function () { return state.config },
             setDate: setDate,
             getDate: getDate,
             getDateAsString: getDateAsString
