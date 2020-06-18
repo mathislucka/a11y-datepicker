@@ -70,7 +70,13 @@ function isSwitcher (el) {
 }
 
 function emitEvent (target, type) {
-    var e = new Event(type, { bubbles: true })
+    var e
+    if (typeof(Event) === 'function') {
+        e = new Event(type, { bubbles: true, cancelable: true })
+    } else {
+        e = document.createEvent('Event')
+        e.initEvent(type, true, true)
+    }
     target.dispatchEvent(e)
 }
 
