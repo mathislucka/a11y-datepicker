@@ -31,14 +31,14 @@
         </div>
         <script src="examples/index.browser.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            var dp = a11yDatepicker({ inputName: 'demo', id: 'datepicker', theme: 'light', monthsBeforeCurrent: 2 })
+            var dp = a11yDatepicker({ inputName: 'demo', id: 'datepicker', theme: 'light', monthsBeforeCurrent: 2, classPrefix: 'be' })
             function test (e) {
                 console.log(dp.getDate())
             }
             document.getElementById('datepicker').addEventListener('input', test)
-            var dp2 = a11yDatepicker({ id: 'second_datepicker', theme: 'light', locale: 'de-DE', dateFormat: 'dd.mm.yyyy', maxDate: '01.06.2020' })
+            var dp2 = a11yDatepicker({ id: 'second_datepicker', classPrefix: 'be', theme: 'light', locale: 'de-DE', dateFormat: 'dd.mm.yyyy', maxDate: '01.06.2020' })
             setTimeout(function () {
-                dp2 = dp2.updateDatepicker({ maxDate: '30.06.2020'})
+                dp2 = dp2.updateDatepicker({ maxDate: '30.06.2020' })
             }, 5000)
         </script>
     </body>
