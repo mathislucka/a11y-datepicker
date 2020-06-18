@@ -1,12 +1,12 @@
-.ad-is-today .ad-button {
+.a1-is-today .a1-button {
     background-color:  #ffd9b3;
 }
 
-.ad-div[data-ad-selector="datepicker-container"] {
+.a1-div[data-ad-selector="datepicker-container"] {
     border: 1px solid #d3d3d3;
     background-color: #fff;
 }
-.ad-table {
+.a1-table {
     border-collapse: collapse;
     font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, "Arial", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -16,34 +16,34 @@
     width: auto;
 }
 
-.ad-td, .ad-th {
+.a1-td, .a1-th {
     text-align: center;
     vertical-align: middle;
 }
 
-.ad-thead {
+.a1-thead {
     border-bottom: 1px solid rgba(211,211,211, 0.6);
     padding-bottom: 1em;
 }
 
-.ad-thead > .ad-tr:first-child > .ad-th {
+.a1-thead > .a1-tr:first-child > .a1-th {
     height: 31px;
 }
 
-.ad-thead > .ad-tr:last-child > .ad-th {
+.a1-thead > .a1-tr:last-child > .a1-th {
     font-weight: normal;
     color: #505362;
 }
 
-.ad-th {
+.a1-th {
     padding-bottom: 2px;
 }
 
-.ad-td {
+.a1-td {
    height: 28px;
 }
 
-.ad-button {
+.a1-button {
     font-size: 100%;
     font-family: inherit;
     color: inherit;
@@ -55,30 +55,30 @@
     min-width: calc(2em + 4px);
 }
 
-.ad-button:focus {
+.a1-button:focus {
     border: 2px solid #003064;
     color: #d4004b;
     padding: 2px;
 }
 
-.ad-button:hover {
+.a1-button:hover {
     border: 2px solid #003064;
     color: #d4004b;
     padding: 2px;
 }
 
-.ad-button[aria-disabled=true] {
+.a1-button[aria-disabled=true] {
     color: darkgrey;
 }
 
-.ad-input[type=text]:invalid {
+.a1-input[type=text]:invalid {
     border: 2px solid red;
 }
 
-.ad-svg {
+.a1-svg {
     fill: #003064;
 }
 
-.ad-table ~ .ad-table .ad-tbody {
+.a1-table ~ .a1-table .a1-tbody {
     border-left: 1px solid rgba(211,211,211, 0.6);
 }
