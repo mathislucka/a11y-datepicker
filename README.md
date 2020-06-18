@@ -70,7 +70,7 @@ a11yDatepicker supports the following options (with defaults)
     // valid delimiters are '.', '-', '/'. Must contain 'd', 'm', 'yyyy'
     dateFormat: 'yyyy-mm-dd',
     // id of the div where the datepicker should be placed
-    id: '_ad',
+    id: 'a1-',
     // date where the datepicker modal should open
     initialDate: null,
     // name-attribute of the input field inserted (for form submissions)
@@ -90,7 +90,7 @@ a11yDatepicker supports the following options (with defaults)
     // What day should the week start on. 0 is Sunday, 6 is Saturday.
     weekStartsOn: 1,
     // all elements of the datepicker instance receive a class consisting of prefix and tag name (e.g. ad-table). Can be used for custom styling.
-    classPrefix: 'ad-',
+    classPrefix: 'a1-',
     // class that should be added to the datepicker input element
     inputClass: '',
     // class that should be added to the datepicker root element
