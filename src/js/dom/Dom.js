@@ -2,11 +2,17 @@ import { createDateFromDayEl } from '../utils/Transformers.js'
 
 function addClass (el, classString) {
     if (classString.length === 0) return el
-    var classes = classString.split(' ')
-    var i = 0
-    while (i < classes.length) {
-        el.classList.add(classes[i])
-        i += 1
+    if (el.tagName === 'SVG' && !el.classList) {
+        var currClass = el.getAttribute('class')
+        currClass = currClass + ' ' + classString
+        el.setAttribute('class', currClass)
+    } else {
+        var classes = classString.split(' ')
+        var i = 0
+        while (i < classes.length) {
+            el.classList.add(classes[i])
+            i += 1
+        }
     }
     return el
 }
