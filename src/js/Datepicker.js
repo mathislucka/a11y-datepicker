@@ -30,12 +30,12 @@ var defaultConfig = {
     monthsBeforeCurrent: 0,
     monthsAfterCurrent: 0,
     weekStartsOn: 1,
-    id: '_ad-',
+    id: 'a1-',
     dateFormat: 'yyyy-mm-dd',
     inputName: 'datepicker-input',
     inputClass: '',
     rootClass: '',
-    classPrefix: 'ad-',
+    classPrefix: 'a1-',
     translations: defaultTranslations,
     required: false
 }

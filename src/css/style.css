@@ -1,15 +1,15 @@
-.ad-div[data-ad-selector="datepicker-container"] {
+.a1-div[data-ad-selector="datepicker-container"] {
     position: absolute;
     display: flex;
     flex-direction: row;
     z-index: 1001;
 }
 
-.ad-div[data-ad-selector="group-container"] {
+.a1-div[data-ad-selector="group-container"] {
     position: relative;
 }
 
-.ad-p.visuallyhidden:not(:focus):not(:active) {
+.a1-p.visuallyhidden:not(:focus):not(:active) {
     position: absolute;
   
     width: 1px;
@@ -25,6 +25,6 @@
     overflow: hidden;
 }
 
-.ad-td:empty::after {
+.a1-td:empty::after {
     content: "\00a0";
   }
