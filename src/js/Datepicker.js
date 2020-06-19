@@ -50,7 +50,8 @@ function Datepicker(userConfig) {
 
     function initializeConfig (userConfig) {
         state.config = merge(state.config, userConfig || {})
-        state.config.monthsBeforeCurrent = state.config.monthsBeforeCurrent * -1
+        var monthsBefore = state.config.monthsBeforeCurrent
+        state.config.monthsBeforeCurrent = monthsBefore < 0 ? monthsBefore : (monthsBefore * -1)
         state.config.weekdays = getWeekdays(findFirstDay(state.config.weekStartsOn), state.config.locale, state.config.weekDayFormat)
     }
 
