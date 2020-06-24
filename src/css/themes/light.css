@@ -79,10 +79,7 @@
     fill: #003064;
 }
 
-.a1-table ~ .a1-table .a1-tbody {
-    border-left: 1px solid rgba(211,211,211, 0.8);
-}
-
+.a1-table ~ .a1-table .a1-tbody,
 .a1-table ~ .a1-table .a1-thead > .a1-tr:last-child {
     border-left: 1px solid rgba(211,211,211, 0.8);
 }
