@@ -22,7 +22,7 @@
 }
 
 .a1-thead {
-    border-bottom: 1px solid rgba(211,211,211, 0.6);
+    border-bottom: 1px solid rgba(211,211,211, 0.8);
     padding-bottom: 1em;
 }
 
@@ -79,6 +79,7 @@
     fill: #003064;
 }
 
-.a1-table ~ .a1-table .a1-tbody {
-    border-left: 1px solid rgba(211,211,211, 0.6);
+.a1-table ~ .a1-table .a1-tbody,
+.a1-table ~ .a1-table .a1-thead > .a1-tr:last-child {
+    border-left: 1px solid rgba(211,211,211, 0.8);
 }
