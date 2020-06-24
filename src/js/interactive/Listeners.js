@@ -40,13 +40,19 @@ function Listeners (config, setDate, getDate) {
 
     function openDatepicker (e) {
         if ((e.target.value === '' || e.type === 'click') && !getElementById(config.id + 'group')) {
-            var el = e.target.parentNode
+            var rootEl = e.target.parentNode
             var date = getDate() || (config.initialDate && toDate(config.initialDate, config.dateFormat)) || new Date()
-            redrawCalendar(el, date, config)
+            redrawCalendar(rootEl, date, config)
             var calendar = getElementById(config.id + 'group')
             var bounding = calendar.getBoundingClientRect()
             if (bounding.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
-                calendar.scrollIntoView()
+                var inputElHeight = e.target.getBoundingClientRect().height
+                var style = getElementById(config.id + 'style') || document.createElement('style')
+                style.setAttribute('data-ad-id', config.id + 'style')
+                style.textContent = '[data-ad-id="' + config.id + 'group"] { bottom: ' + inputElHeight + 'px; }'
+                getElementById(config.id + 'style') || document.head.appendChild(style)
+            } else {
+                getElementById(config.id + 'style') && document.head.removeChild(getElementById(config.id + 'style'))
             }
         }
     }
