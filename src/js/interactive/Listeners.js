@@ -47,13 +47,9 @@ function Listeners (config, setDate, getDate) {
             var bounding = calendar.getBoundingClientRect()
             if (bounding.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
                 var inputElHeight = e.target.getBoundingClientRect().height
-                var style = getElementById(config.id + 'style') || document.createElement('style')
-                style.setAttribute('data-ad-id', config.id + 'style')
-                style.textContent = '[data-ad-id="' + config.id + 'group"] { bottom: ' + inputElHeight + 'px; }'
-                getElementById(config.id + 'style') || document.head.appendChild(style)
-            } else {
-                getElementById(config.id + 'style') && document.head.removeChild(getElementById(config.id + 'style'))
+                calendar.setAttribute('style', 'bottom: ' + inputElHeight + 'px;')
             }
+            config.onAfterOpen(calendar)
         }
     }
     
@@ -76,6 +72,7 @@ function Listeners (config, setDate, getDate) {
     }
     
     function clickSwitch (e) {
+        preventBlur(e)
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)

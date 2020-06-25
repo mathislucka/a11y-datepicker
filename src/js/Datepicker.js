@@ -38,7 +38,8 @@ var defaultConfig = {
     classPrefix: 'a1-',
     translations: defaultTranslations,
     required: false,
-    disabled: false
+    disabled: false,
+    onAfterOpen: function (el) {}
 }
 
 function Datepicker(userConfig) {

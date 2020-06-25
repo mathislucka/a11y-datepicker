@@ -98,6 +98,8 @@ a11yDatepicker supports the following options (with defaults)
     // mark date input as required
     required: false,
     // disable date input
-    disabled: false
+    disabled: false,
+    // callback function called after opening the datepicker and receiving the datepicker container element as an argument
+    onAfterOpen: function (datePickerContainterElement) {}
 }
 ```

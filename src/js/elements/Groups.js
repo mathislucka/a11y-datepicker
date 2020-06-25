@@ -1,10 +1,12 @@
 import { createRange } from '../utils/Range.js'
 import { createMonth } from './Months.js'
 import { shiftMonth } from '../utils/DateManipulation.js'
+import { getElementById } from './../dom/Dom.js'
 
 function renderGroup(el, date, config, before, after) {
     var range = createRange(before, after)
-    var group = document.createElement('div')
+    var group = getElementById(config.id + 'group') || document.createElement('div')
+    group.innerHTML = ''
 
     range.forEach( function (r, idx) {
         var isLeftEdge = typeof range[idx - 1] === 'undefined'
@@ -15,7 +17,9 @@ function renderGroup(el, date, config, before, after) {
 
     group.setAttribute('data-ad-id', config.id + 'group')
     group.setAttribute('data-ad-selector', 'datepicker-container')
-    var container = document.createElement('div')
+    
+    var container = getElementById(config.id + 'group-container') || document.createElement('div')
+    container.innerHTML = ''
     container.setAttribute('data-ad-selector', 'group-container')
     container.setAttribute('data-ad-id', config.id + 'group-container')
     container.appendChild(group)

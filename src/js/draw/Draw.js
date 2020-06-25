@@ -5,7 +5,6 @@ import { toDate, toDateString } from '../utils/Transformers.js'
 function redrawCalendar (calendarRootElement, drawingDate, config, before, after) {
     before = isNaN(before) ? config.monthsBeforeCurrent : before
     after = isNaN(after) ? config.monthsAfterCurrent : after
-    removeCalendar(calendarRootElement, config.id)
     renderGroup(calendarRootElement, drawingDate, config, before, after)
     setClasses(calendarRootElement, config.classPrefix)
 }
