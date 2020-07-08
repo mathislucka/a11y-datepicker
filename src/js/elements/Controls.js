@@ -15,6 +15,7 @@ function createSwitcher(direction, year, month) {
     // This is a bit hacky. It should cancel click events on svg or path
     // and dispatch an event from btn instead so that it can be handled by event listeners higher up the dom.
     function setEventTarget (ev) {
+            ev.preventDefault()
             ev.stopPropagation()
             btn.removeEventListener('click', setEventTarget)
             emitEvent(btn, 'click')
