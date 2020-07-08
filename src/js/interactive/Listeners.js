@@ -13,7 +13,7 @@ function Listeners (config, setDate, getDate) {
     this.activeListeners = []
     this.setListeners = function setListeners (rootEl, inputEl) {
         this.activeListeners.push(on('focus', inputEl, openDatepicker))
-        this.activeListeners.push(on('click', rootEl, clickSwitch))
+        this.activeListeners.push(on('mousedown', rootEl, clickSwitch))
         this.activeListeners.push(on('keydown', rootEl, keyPressSwitch))
         this.activeListeners.push(on('input', inputEl, updateDatePicker))
         this.activeListeners.push(on('click', inputEl, openDatepicker))
@@ -72,7 +72,6 @@ function Listeners (config, setDate, getDate) {
     }
     
     function clickSwitch (e) {
-        preventBlur(e)
         var el = e.target
         var inputEl = getElementById(config.id + 'input')
         isDay(el) && selectDate(el, inputEl)
