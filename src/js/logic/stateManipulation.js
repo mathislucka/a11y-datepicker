@@ -21,7 +21,7 @@ function dateSetter (state, dateInputEl, config) {
 function dateGetter (state, format, asString) {
     return function () {
         var date = state.selectedDate
-        return asString ? toDateString(date, format) : date
+        return asString ? date && toDateString(date, format) : date
     }
 }
 
