@@ -34,7 +34,7 @@ function Listeners (config, setDate, getDate) {
     
     function closeDatePicker (e) {
         if (rules.shouldCloseOnFocusOut(e)) {
-            removeCalendar(e.currentTarget.parentNode, config.id)
+           removeCalendar(e.currentTarget.parentNode, config.id)
         }
     }
 

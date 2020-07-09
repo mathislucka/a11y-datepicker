@@ -2,7 +2,7 @@ import { createDateFromDayEl } from '../utils/Transformers.js'
 
 function addClass (el, classString) {
     if (classString.length === 0) return el
-    if (el.tagName === 'SVG' && !el.classList) {
+    if (!el.classList) {
         var currClass = el.getAttribute('class')
         currClass = currClass + ' ' + classString
         el.setAttribute('class', currClass)
@@ -19,7 +19,7 @@ function addClass (el, classString) {
 
 function addTagClass (el, classString) {
     var tag  = el.tagName.toLowerCase()
-    el.classList.add(classString + tag)
+    addClass(el, classString + tag)
 }
 
 function setClasses (rootEl, classString) {
@@ -80,4 +80,11 @@ function emitEvent (target, type) {
     target.dispatchEvent(e)
 }
 
-export { addClass, emitEvent, focusElement, getElementById, getElementByDate, getFocussedElement, on, isDay, isSwitcher, getFocussedDay, setClasses }
+function removeAllChildren (node) {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+    return node
+}
+
+export { addClass, emitEvent, focusElement, getElementById, getElementByDate, getFocussedElement, on, isDay, isSwitcher, getFocussedDay, removeAllChildren, setClasses }
