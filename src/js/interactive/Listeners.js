@@ -89,6 +89,9 @@ function Listeners (config, setDate, getDate) {
         } else if (key === 'Esc' || key === 'Escape') {
             focusElement(getElementById(config.id + 'input'))
             removeCalendar(e.currentTarget, config.id)
+        } else if ((key === 'Enter' || key === ' ' /* Space Bar */) && isDayFocussed) {
+            e.preventDefault()
+            clickSwitch(e) // select date as if it was a click
         }
     }
 }
