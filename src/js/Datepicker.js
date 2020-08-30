@@ -94,7 +94,7 @@ function Datepicker(userConfig) {
         initializeConfig(newConfig)
         destroy()
         var instance = drawDatepicker(state.config)
-        state.selectedDate && instance.setDate(state.selectedDate)
+        state.selectedDate && instance.setDate(state.selectedDate, true)
         instance.updateDatepicker = update
         return instance
     } 
