@@ -33,11 +33,13 @@
                 console.log(dp.getDate())
             }
             document.getElementById('datepicker').addEventListener('input', test)
-            var dp2 = a11yDatepicker({ id: 'second_datepicker', theme: 'light', locale: 'de-DE', dateFormat: 'dd.mm.yyyy', maxDate: '01.06.2020' })
+            var dp2 = a11yDatepicker({ id: 'second_datepicker', theme: 'light', locale: 'de-DE', dateFormat: 'dd.mm.yyyy', maxDate: '01.06.2020', required: true })
             setTimeout(function () {
                 dp2 = dp2.updateDatepicker({ maxDate: '30.06.2020' })
-                // dp2.setDate('30.07.2020', true)
+                dp2.setDate('', true)
                 console.log(dp2.getConfig())
+                console.log(dp2.getDate())
+                console.log(dp2.getDateAsString())
             }, 5000)
         </script>
     </body>
