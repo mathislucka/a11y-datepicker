@@ -1,7 +1,3 @@
-.a1-is-today .a1-button {
-    background-color:  #ffd9b3;
-}
-
 .a1-div[data-ad-selector="datepicker-container"] {
     border: 1px solid #d3d3d3;
     background-color: #fff;
@@ -53,6 +49,10 @@
     border: none;
     padding: 4px;
     min-width: calc(2em + 4px);
+}
+
+.a1-is-today {
+    background-color:  #d6e8f5;
 }
 
 .a1-button:focus {
